@@ -92,8 +92,8 @@ router.get('/', function(req, res, next) {
 
 
 router.get("/Home", function(req, res) {
-  User.findOne({_id:'144137U'}, function ( err, user, count ){
-      if(user.jobTitle === 'System Admin'){
+  User.findOne({username:req.cookies.LoggedInUser}, function ( err, user, count ){
+      if(user.jobTitle === 'System Admin'){   
         res.render('Pages/SystemAdminHome');
       }else if(user.jobTitle === 'Survey Admin'){
         res.render('Pages/SurveyAdminHome');
@@ -304,8 +304,5 @@ router.get('/resetPassword', function(req, res) {
       });
     });
 });
-
-
-
 
 module.exports = router;
