@@ -1,0 +1,52 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal3">Essay Questions</button>
+											 <div class="modal fade" id="myModal3" role="dialog">
+											    <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
+											      <div class="modal-content">
+											        <div class="modal-header">
+											          <button type="button" class="close" data-dismiss="modal">&times;</button>
+											          <h4 class="modal-title">WebForms Library</h4>
+											        </div>
+											       <div class="modal-body">
+									            <p>Some text in the modal.</p>
+									            <div ng-controller="dynamicFields">
+									              <h1>Dynamic Form Fields Creation Plugin</h1>
+									              <form class="form-horizontal" ng-submit="addESurvey()">
+									                <div class="row">
+									                  <label class="control-label col-sm-2" for="name" style="color:#538b01;">Survey Name</label>
+									                  <div class="col-sm-4">
+									                    <input type="text" class="form-control"  placeholder="Enter surveyname" ng-model="surveyname"> 
+									                  </div>
+									                  <label class="control-label col-sm-2" for="name" style="color:#538b01;">Survey Id</label>
+									                  <div class="col-sm-4">
+									                    <input type="text" class="form-control"  placeholder="Enter survey Id" ng-model="surveyId"></br>
+									                  </div>
+									                </div>
+
+									                <div>
+									                  <div class="form-group" data-ng-repeat="question in questions">
+									                    <label for="question" class="control-label col-sm-2" style="color:#538b01;"> {{question.id}} </label>
+									                    <div class="col-sm-10">
+									                      <input type="text" class="form-control" ng-model="question.value" value="" placeholder="Enter a restaurant name" id="{{question._id}}">
+									                      <button class="btn btn-success" ng-show="showAddQuestion(question)" ng-click="addNewQuestion()">Add Question</button>
+									                      <button class="btn btn-success" ng-click="removeNewQuestion()">Remove Question</button>
+									                    </div>
+									                  </div>
+									                  <div class="form-group">
+									                    <div class="col-sm-offset-2 col-sm-10">
+									                      <button class="btn btn-success" ng-click="saveESurvey()">Add survey</button>
+									                    </div>
+									                  </div>
+									                </div>  
+									              </form>
+
+									              <div id="questionDisplay">
+									                {{ quevalue }}
+									              </div>
+									            </div>
+
+											        <div class="modal-footer">
+											          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											        </div>
+											      </div>
+											    </div>
+											  </div>

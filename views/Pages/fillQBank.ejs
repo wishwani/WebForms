@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>WebFormsAdmin DB</title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/css/normalize.css' />
+	<link rel='stylesheet' href='/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/stylesheets/css/style.css' />
+	<link rel='shortcut icon' href='/images/favicon.ico' />
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-cookies.js"></script>
+	<script src="/javascripts/AngularApp.js"></script>
+	<script src="/javascripts/AngularApp2.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body ng-app="app">
+    <div class="section">
+			<nav class="navbar navbar-default navbar-fixed-top role="navigation"/>
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<img src='/images/Logo.png' height="50px" align="left" />
+						<a class="navbar-brand" href="#">WebForms</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="/AdminDatabase/updateEmployee/profile"><span class="glyphicon glyphicon-user"></span>My profile</a></li>
+						<li><a href="#">Help</a></li>				
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/Logout"><b>Log out</b></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+    </div></br></br></br>
+  
+		<div class="container-fluid">
+			<div class="section">
+				<ul class="nav nav-tabs">
+						<li><a href="/home"><span class="glyphicon glyphicon-home"></span>   Home</a></li>
+						<li><a href="/AdminDatabase"><span class="glyphicon glyphicon-folder-open"></span>   Database</a></li>
+						<li  class="active"><a href="/CreateSurvey"><span class="glyphicon glyphicon-registration-mark"></span> CreateSurvey</a></li>
+						<li><a href="/SubmitSurvey"><span class="glyphicon glyphicon-comment"></span>  SubmitSurvey</a></li>
+				</ul>
+			</div></br></br>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="#">Create New Survey</a></li>
+						<li><a href="CreateSurvey/viewSurvey">View Survey</a></li>
+					</ul>
+				</div>
+				<div class="col-md-9" ng-controller="addQBankCtrl">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242;">
+						<div class="col-md-9">
+							<h1>Create New Survey</h1>
+							<form class="form-horizontal" ng-submit="addQBank()">
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="name">Category Name</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control"  placeholder="Class Name" ng-model="className"></br>	
+									</div>
+									<label class="control-label col-sm-3" for="name">Class Id</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control"  placeholder="Enter Category Id" ng-model="classId">
+									</div>
+								</div>
+		  						<div class="form-group">
+										<div class="col-sm-offset-3 col-sm-9">
+											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">Import questions from</button>
+											 <div class="modal fade" id="myModal1" role="dialog">
+											    <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
+											      <div class="modal-content">
+											        <div class="modal-header">
+											          <button type="button" class="close" data-dismiss="modal">&times;</button>
+											          <h4 class="modal-title">WebForms Library</h4>
+											        </div>
+											        <div class="modal-body" >
+											          <ul class="nav nav-pills nav-stacked" id="library">
+														<li><button button type="button" class="btn btn-default col-md-12" onclick="" style="text-align:left;">Developers</button></li>
+														<li><button button type="button" class="btn btn-info col-md-12" onclick="show()" style="text-align:left;">Type 2</button></li>
+															<div style="display: none;" id="designers">
+																
+															</div>
+														<li><button button type="button" class="btn btn-default col-md-12" onclick="" style="text-align:left;">Type 3</button></li>
+														<li><button button type="button" class="btn btn-default col-md-12" onclick="" style="text-align:left;">Type 4</button></li>
+													  </ul>
+											        </div>
+											        <div class="modal-footer">
+											          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											        </div>
+											      </div>
+											    </div>
+											  </div>
+
+											<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2">Create New Question</button>
+											 <div class="modal fade" id="myModal2" role="dialog">
+											    <div class="modal-dialog modal-lg">
+											      <div class="modal-content">
+											        <div class="modal-header">
+											          <button type="button" class="close" data-dismiss="modal">&times;</button>
+											          <h4 class="modal-title">Default Question Block</h4>
+											        </div>
+											        <div class="modal-body">
+													    <div class="form-group">
+													      <label for="que" class="col-sm-2 control-label" style="color:#538b01;">Question</label>
+													      <div class="col-sm-10">
+													        <input type="text" class="form-control" id="que" ng-model="questionObj.que" placeholder="Type to enter question">
+													      </div>
+													    </div>
+													    <div class="form-group">
+													      <label for="a1" class="col-sm-2 control-label" style="color:#538b01;">Answer 1</label>
+													      <div class="col-sm-10">
+													        <input type="text" class="form-control" id="a1" ng-model="questionObj.ans1"  placeholder="Type to enter answer">
+													      </div>
+													    </div>
+													    <div class="form-group">
+													      <label for="a2" class="col-sm-2 control-label" style="color:#538b01;">Answer 2</label>
+													      <div class="col-sm-10">
+													        <input type="text" class="form-control" id="a2" ng-model="questionObj.ans2" placeholder="Type to enter answer">
+													      </div>
+													    </div>
+													    <div class="form-group">
+													      <label for="a3" class="col-sm-2 control-label" style="color:#538b01;">Answer 3</label>
+													      <div class="col-sm-10">
+													        <input type="text" class="form-control" id="a3" ng-model="questionObj.ans3" placeholder="Type to enter answer">
+													      </div>
+													    </div>
+													     <div class="form-group">
+													      <label for="a4" class="col-sm-2 control-label" style="color:#538b01;">Answer 4</label>
+													      <div class="col-sm-10">
+													        <input type="text" class="form-control" id="a4" ng-model="questionObj.ans4" placeholder="Type to enter answer">
+													      </div>
+													    </div>
+													    <div class="form-group">
+													      <label for="a4" class="col-sm-2 control-label" style="color:#538b01;">Answer 4</label>
+													      <div class="col-sm-10">
+													        <input type="text" class="form-control" id="a4" ng-model="questionObj.ans5" placeholder="Type to enter answer">
+													      </div>
+													    </div>
+													    <div class="form-group">
+													      <div class="col-sm-offset-2 col-sm-10">
+													        <button type="button" class="btn btn-warning" ng-click="addQuestion()">Add question</button>
+													      </div>
+													    </div>
+													    <div class="form-group">
+													      <div class="col-sm-offset-2 col-sm-10">
+													        <button type="submit" class="btn btn-success">Add survey</button>
+													      </div>
+													    </div>
+											        </div>
+
+											        <div class="modal-footer">
+											          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+											        </div>
+											      </div>
+											    </div>
+											  </div>
+
+											  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal3">Essay Questions</button>
+											 <div class="modal fade" id="myModal3" role="dialog">
+											    <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
+											      <div class="modal-content">
+											        <div class="modal-header">
+											          <button type="button" class="close" data-dismiss="modal">&times;</button>
+											          <h4 class="modal-title">WebForms Library</h4>
+											        </div>
+											        <div class="modal-body">
+											          
+											            <div class="container">
+															<div class="row">
+																<input type="hidden" name="count" value="1" />
+														        <div class="control-group" id="fields">
+														            <label class="control-label" for="field1">Nice Multiple Form Fields</label>
+														            <div class="controls" id="profs"> 
+														                <form class="input-append">
+														                    <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+														                </form>
+														            <br>
+														            <small>Press + to add another form field :)</small>
+														            </div>
+														        </div>
+															</div>
+															<div class="row">
+																<button type="submit" class="btn btn-success">Add survey</button>
+															</div>
+													      													     													      													   
+														</div>
+
+											        </div>
+											        <div class="modal-footer">
+											          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											        </div>
+											      </div>
+											    </div>
+											  </div>
+										</div>
+								</div>
+							</form>
+						</div>
+						
+						</br>
+						
+						<div class="col-md-3" id="right_side">
+						 	<form>
+								<div class="form-group">
+									<label for="sel1">Change Question Type</label></br>
+							     	<select class="form-control" id="sel1">
+							        <option value="1">Multiple Choice Questions</option>
+							        <option value="2">Essay Questions</option>
+							     	</select>
+						    </div> 
+						  </form>
+
+						  <form id="choices">
+								<div class="form-group">
+									<label for="sel1">Choices</label></br>
+							    	<select class="form-control" id="sel1">
+							        <option value="c1">2</option>
+							        <option value="c2">3</option>
+							        <option value="c3">4</option>
+							        <option value="c4">5</option>
+							     	</select>
+						    	</div> 
+						  </form>
+
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+					$("select").bind("change", function() {
+			    if ($(this).val() == "1") {
+			        $("#choices").show();
+			    }
+			    else if ($(this).val() == "2") {
+			        $("#choices").hide();
+			    }
+			});
+					$("select").bind("change2", function() {
+			    if ($(this).val() == "c1") {
+			        $("#ans1").show();
+			    }
+			    else if ($(this).val() == "c2") {
+			        $("#choices").hide();
+			    }
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+		    var next = 1;
+		    $(".add-more").click(function(e){
+		        e.preventDefault();
+		        var addto = "#field" + next;
+		        var addRemove = "#field" + (next);
+		        next = next + 1;
+		        var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';
+		        var newInput = $(newIn);
+		        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+		        var removeButton = $(removeBtn);
+		        $(addto).after(newInput);
+		        $(addRemove).after(removeButton);
+		        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+		        $("#count").val(next);  
+		        
+		            $('.remove-me').click(function(e){
+		                e.preventDefault();
+		                var fieldNum = this.id.charAt(this.id.length-1);
+		                var fieldID = "#field" + fieldNum;
+		                $(this).remove();
+		                $(fieldID).remove();
+		            });
+		    });
+		  	    
+		});
+		</script>
+
+		<script>
+			function show()
+			{
+    			var x = document.getElementById('designers');
+    			if (x.style.display == 'none')
+    			{
+       				 x.style.display = 'block';
+    			} 
+    			else
+    			{
+        			x.style.display = 'none';
+   				}
+			}
+		</script>
+
+		<script src="js/bootstrap.js"></script>
+		<script src="js/jquery-2.0.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

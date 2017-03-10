@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+  <head>
+   <% include ../partials/Common/head %>
+  </head>
+
+  <body ng-app="app" ng-controller="answerECtrl">
+    <% include ../partials/Common/header %>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="#">Create New Survey</a></li>
+						<li><a href="#">View Survey</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-9">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242; color: white;">
+						<div class="inbox-body">
+							<div>
+								
+								<table class="table table-inbox table-hover">
+	                <tbody>
+	                  	<tr class="unread">
+		                    <td style="width: 50%">SurveyId: <span id="ID"><%= esurvey._id %></span></td>
+										 		<td style="width: 50%">SurveyName: <span id="Sname"><%= esurvey.surveyname %></span></td>	                  	
+	                  	</tr>               
+	                </tbody>
+             		</table>
+						  
+					      <form id="testformid">
+								<div>
+								<% for (index=0;index<esurvey.question.length;index++) { %>
+								<div>
+									<p><font color="#28F397" size="4"><%= esurvey.question[index].value %></font></p>
+									<div class="form-group">
+										<div>
+											<textarea cols="75" form ="testformid" name='<%= esurvey.question[index]._id %>'placeholder="Enter your message" required="required" rows="3" ></textarea>
+										</div>
+									</div>
+								</div>
+								<% } %>
+								</div>
+							  </form>
+
+							
+
+							<div>
+								<button type="submit" ng-click="submitAnswers();" class="btn btn-default">Submit</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+			</div>
+				
+			</div>
+   
+  </body>
+</html>

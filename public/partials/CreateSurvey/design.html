@@ -1,0 +1,16 @@
+<div id="designers" ng-controller="DesignCtrl">
+
+	<h3>Designers List</h3>
+
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Family</th>
+		</tr>
+		<tr ng-repeat="d in designers">
+			<td>{{d.name}}</td>
+			<td>{{d.family}}</td>
+		</tr>
+	</table>
+
+</div>

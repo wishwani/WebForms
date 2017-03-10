@@ -1,0 +1,78 @@
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2">Create New Question</button>
+											 <div class="modal fade" id="myModal2" role="dialog">
+											    <div class="modal-dialog modal-lg">
+											      <div class="modal-content">
+											        <div class="modal-header">
+											          <button type="button" class="close" data-dismiss="modal">&times;</button>
+											          <h4 class="modal-title">Default Question Block</h4>
+											        </div>
+											        <div class="modal-body">
+
+												        <form class="form-horizontal" ng-submit="addSurvey()">
+												        	<div class="row">
+															
+																<label class="control-label col-sm-2" for="name" style="color:#538b01;">Survey Name</label>
+																<div class="col-sm-4">
+																	<input type="text" class="form-control"  placeholder="Enter surveyname" ng-model="surveyname"></br>	
+																</div>
+																<label class="control-label col-sm-2" for="name" style="color:#538b01;">Survey Id</label>
+																<div class="col-sm-4">
+																	<input type="text" class="form-control"  placeholder="Enter survey Id" ng-model="surveyId">
+																</div>
+															
+															</div>
+
+														    <div class="form-group">
+														      <label for="que" class="col-sm-2 control-label" style="color:#538b01;">Question</label>
+														      <div class="col-sm-10">
+														        <input type="text" class="form-control" id="que" ng-model="questionObj.que" placeholder="Type to enter question">
+														      </div>
+														    </div>
+														    <div class="form-group">
+														      <label for="a1" class="col-sm-2 control-label" style="color:#538b01;">Answer 1</label>
+														      <div class="col-sm-10">
+														        <input type="text" class="form-control" id="a1" ng-model="questionObj.ans1"  placeholder="Type to enter answer">
+														      </div>
+														    </div>
+														    <div class="form-group">
+														      <label for="a2" class="col-sm-2 control-label" style="color:#538b01;">Answer 2</label>
+														      <div class="col-sm-10">
+														        <input type="text" class="form-control" id="a2" ng-model="questionObj.ans2" placeholder="Type to enter answer">
+														      </div>
+														    </div>
+														    <div class="form-group">
+														      <label for="a3" class="col-sm-2 control-label" style="color:#538b01;">Answer 3</label>
+														      <div class="col-sm-10">
+														        <input type="text" class="form-control" id="a3" ng-model="questionObj.ans3" placeholder="Type to enter answer">
+														      </div>
+														    </div>
+														     <div class="form-group">
+														      <label for="a4" class="col-sm-2 control-label" style="color:#538b01;">Answer 4</label>
+														      <div class="col-sm-10">
+														        <input type="text" class="form-control" id="a4" ng-model="questionObj.ans4" placeholder="Type to enter answer">
+														      </div>
+														    </div>
+														    <div class="form-group">
+														      <label for="a4" class="col-sm-2 control-label" style="color:#538b01;">Answer 4</label>
+														      <div class="col-sm-10">
+														        <input type="text" class="form-control" id="a4" ng-model="questionObj.ans5" placeholder="Type to enter answer">
+														      </div>
+														    </div>
+														    <div class="form-group">
+														      <div class="col-sm-offset-2 col-sm-10">
+														        <button type="button" class="btn btn-warning" ng-click="addQuestion()" onclick="addquestion()">Add question</button>
+														      </div>
+														    </div>
+														    <div class="form-group">
+														      <div class="col-sm-offset-2 col-sm-10">
+														        <button type="submit" class="btn btn-success" onclick="addsurvey()">Add survey</button>
+														      </div>
+														    </div>
+														</form>    
+											        </div>
+											        <div class="modal-footer">
+											          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+											        </div>
+											      </div>
+											    </div>
+											  </div>

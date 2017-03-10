@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html >
+  <head>
+   <% include ../partials/Common/head %>
+  </head>
+
+  <body ng-app="app">
+    
+    <% include ../partials/Common/header %>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+							<li class="active"><a href="/AdminDatabase/register">Register New Employee</a></li>
+							<li><a href="/AdminDatabase/viewUser">View User</a></li>
+							<li><a href="#">Delete Employee</a></li>
+						</ul>
+				</div>
+
+				<div class="col-md-9">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242;"  id="register" ng-controller="registerCtrl">
+						<h1 style="color:#CF2D2D;">Enter Employee Details</h1>
+						 <form class="form-horizontal" role="form" action="/AdminDatabase" method="post">
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="name"><font size="4" color="#4FD532">Employee Name</font></label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="username" id="ename" placeholder="Employee Name" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="id" ><font size="4" color="#4FD532">Employee Id</font></label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="eid" id="eid" placeholder="Employee Id" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="dob"><font size="4" color="#4FD532">Date of Birth</font></label>
+								<div class="col-sm-9">
+									<input type="date" class="form-control"  name="dob" id="dob" placeholder="Date of Birth" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="tp"><font size="4" color="#4FD532">Telephone No</font></label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control"  name="tp" id="tp" placeholder="Telephone No" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="address"><font size="4" color="#4FD532">Address</font></label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="address" id="address" placeholder="Address" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="email"><font size="4" color="#4FD532">Email</font></label>
+								<div class="col-sm-9">
+									<input type="email" class="form-control" name="email" id="email" placeholder="Email"required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="fbid"><font size="4" color="#4FD532">FB_Id</font></label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="fbid" id="fbid" placeholder="Facebook Id">
+								</div>
+							</div>
+						
+							<div class="form-group">
+					      <label class="control-label col-sm-3" for="job"><font size="4" color="#4FD532">Job Title</font></label>
+					      <div class="col-sm-9">
+						      <select class="form-control" name="job" id="job">
+						        <option>System Admin</option>
+						        <option>Survey Admin</option>
+						        <option>Survey Taker</option>
+						      </select>
+					      </div>
+					    </div>
+					      
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="pwd"><font size="4" color="#4FD532">Password</font></label>
+								<div class="col-sm-9">
+									<input type="Password" class="form-control" name="password" id="pwd" placeholder="Password">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-9">
+									<button type="submit" class="btn btn-default" onclick="registered()">Register</button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+						
+				</div>
+
+				
+
+				
+			</div>
+		</div>
+
+		<script>
+		function registered(){
+		      swal({
+				  title: "User registered",
+				  text: "Register next user",
+				  timer: 1500,
+				  showConfirmButton: false
+			});
+		}
+		</script>		 
+  </body>
+</html>

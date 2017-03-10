@@ -1,0 +1,43 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">Import questions from</button>
+											 <div class="modal fade" id="myModal1" role="dialog">
+											    <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
+											      <div class="modal-content">
+											        <div class="modal-header">
+											          <button type="button" class="close" data-dismiss="modal">&times;</button>
+											          <h4 class="modal-title">WebForms Library</h4>
+											        </div>
+											        <div class="modal-body" >
+												        <button class="accordion"><%= healthCare.className %></button>
+																<div class="panel">
+																	<p><%= healthCare.question[0].que %></p>
+																</div>
+
+																<button class="accordion"><%= salaryIssue.className %></button>
+																<div class="panel">
+																	<p>Type 2 questions..</p>
+																	<form>
+																	    <div class="radio">
+																	      <label><input type="radio" name="optradio">Option 1</label>
+																	    </div>
+																	    <div class="radio">
+																	      <label><input type="radio" name="optradio">Option 2</label>
+																	    </div>
+																	    <div class="radio disabled">
+																	      <label><input type="radio" name="optradio">Option 3</label>
+																	    </div>
+																	</form></br>
+																</div>
+
+															  <button class="accordion">Type 3</button>
+																<div class="panel">
+																	<p>Type 3 questions..</p>
+																</div>
+											        </div>
+
+											        <div class="modal-footer">
+											          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="imported()">Import</button>
+											          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											        </div>
+											      </div>
+											    </div>
+											  </div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+  <head>
+   <% include ../partials/Common/head %>
+  </head>
+
+  <body ng-app="app">
+    <% include ../partials/Common/header %>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="#">Create New Survey</a></li>
+						<li><a href="#">View Survey</a></li>
+					</ul>
+				</div>
+
+				
+
+				<div class="col-md-9">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242; color: white;">
+						<div class="inbox-body" ng-controller="answerMCQCtrl">
+							<div>
+								
+								<table class="table table-inbox table-hover">
+	                <tbody>
+	                  	<tr class="unread">
+		                    <td style="width: 50%" id="ID"><%= survey._id %></td>
+										 		<td style="width: 50%" id="Sname"><%= survey.surveyname %></td>	                  	
+	                  	</tr>               
+	                </tbody>
+             		</table>
+					      
+					      <form name="surveyname1">
+								<div>
+								<% for (index=0;index<survey.question.length;index++) { %>
+								<div>
+									<p><font color="#28F397" size="4"><%= survey.question[index].que %></font></p>
+									<div class="radio">
+								    <label><input type="radio" name='<%= survey.question[index]._id %>' value="ans1" ng-click="saveAnswer($event)"><%= survey.question[index].ans1 %></label>
+								  </div>
+								  <div class="radio">
+								    <label><input type="radio" name='<%= survey.question[index]._id %>' value="ans2" ng-click="saveAnswer($event)"><%= survey.question[index].ans2 %></label>
+								  </div>
+								  <div class="radio">
+								    <label><input type="radio" name='<%= survey.question[index]._id %>' value="ans3" ng-click="saveAnswer($event)"><%= survey.question[index].ans3 %></label>
+								  </div>
+								  <div class="radio">
+								    <label><input type="radio" name='<%= survey.question[index]._id %>' value="ans4" ng-click="saveAnswer($event)"><%= survey.question[index].ans4 %></label>
+								  </div>
+								  <div class="radio">
+								    <label><input type="radio" name='<%= survey.question[index]._id %>' value="ans5" ng-click="saveAnswer($event)"><%= survey.question[index].ans5 %></label>
+								  </div>
+								</div>
+								<% } %>
+								</div>
+							  </form>
+							</div>
+
+							<div>
+								<button type="submit" ng-click="submitAnswers()" class="btn btn-default">Submit</button>
+							</div>
+
+						</div>
+
+						<form action="/SubmitSurvey/saveMCQAnswer" method="post">
+						  First name:<br>
+						  <input type="text" name="firstname" value="Mick">
+						  <br>
+						  Last name:<br>
+						  <input type="text" name="lastname" value="Mou">
+						  <br><br>
+						  <input type="submit" value="Submit">
+						</form> 
+					</div>
+				</div>
+				
+			</div>
+				
+			</div>
+   
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<html ng-app="app">
+	<head>
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js">
+	</script>
+	<script src= "AngularApp2.js"></script>
+	</head>
+	<body ng-controller="myController">
+		Search : <input type="text" value="" ng-model="search" />
+		<table border=1>
+			<tr ng-repeat="data in myData | filter : search">
+				<td>{{data.Name}}</td>
+				
+				<td><a href="" ng-click="removeName(data)">Remove</a></td>
+			</tr>
+		</table>
+	</body>
+	<!--retrive mongoose data as json and display using angular http-->
+</html>

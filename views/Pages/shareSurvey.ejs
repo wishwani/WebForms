@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+  <head>
+   <% include ../partials/Common/head %>
+
+  <body ng-app="app">
+    
+    	<% include ../partials/Common/header %>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="#">Create New Survey</a></li>
+						<li><a href="#">View Survey</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-9">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242; color: white;">
+						<div class="inbox-body">
+							<div>
+								<table class="table table-inbox">
+					        <tbody>
+						        <tr class="unread">
+											<td style="width: 50%"><p id="ID" data-username='<%= user.username %>'><%= survey.id %></p></td>
+											<td style="width: 50%"><p><%= survey.surveyname %></p></td>
+					          </tr>
+					        </tbody>
+					      </table>
+							</div>
+
+							<div class="row">
+								<div class="col-md-3">
+									<h3>Send to :</h3>
+								</div>
+							<div ng-controller="survey_user_email">
+							<div class="col-md-9">
+									<select id="lstFruits" multiple="multiple">
+									 <% user.forEach( function( user ){ %>
+								        <option data-username='<%= user.username %>' data-email="<%= user.email %>"><%= user.username %>_<%= user.email %></option>
+								     <% }); %>  								  
+								    </select>
+								    <input type="button" id="btnSelected" value="Get Selected" />
+
+								</div>
+
+							<div>
+							
+								
+								<button type="button" ng-click="sendEmail()" class="btn btn-success"><a href="share/send">Send Survey</a></button>
+
+							</div>
+							</div>
+							<div  ng-controller="surveyname_username">
+							<button type="button" ng-click="sendUser()" class="btn btn-success"><a href="save/receivers">Save receivers</a></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+	 <script type="text/javascript">
+
+	 			email = [];
+	 			username = [];
+	 			survey_id = document.getElementById('ID').innerHTML;
+	        $(function () {
+	            $('#lstFruits').multiselect({
+	                includeSelectAllOption: true
+	            });
+	            $('#btnSelected').click(function () {
+	                var selected = $("#lstFruits option:selected");
+	                var message = "";
+	                selected.each(function () {
+	                		username.push($(this).val().split("_")[0]);
+	                		email.push($(this).val().split("_")[1]);
+	                		message += $(this).text() + " " + $(this).val() + "\n";
+	                });
+	            });
+	        });
+
+	    </script>
+	  
+  </body>
+</html>
+
+

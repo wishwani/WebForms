@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+  <head>
+ 		<% include ../partials/Common/head %>
+  </head>
+
+  <body ng-app="app">
+    
+    	<% include ../partials/Common/header %>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+							<li><a href="/AdminDatabase/register">Register New Employee</a></li>
+							<li><a href="/AdminDatabase/viewUser">View User</a></li>
+							<li><a href="#">Delete Employee</a></li>
+						</ul>
+				</div>
+			</div>
+			
+
+			<div class="col-md-9">
+				<div class="container-fluid" id="inside" style="border:1px solid #444242; color: white;">
+					<div class="inbox-body">
+						<div class="col-md-8">
+							<table class="table table-inbox">
+                <tbody>
+
+									<div style="height: 10px;">
+										<tr><center><b><h2><%= users.username %></h2></b></center></li></tr>
+									</div>
+									<div style="height: 8px;">
+										<tr><font color="#28F397" size="4">User Id:</font>  <%= users.id %></tr>
+									</div>
+									<div style="height: 8px;">
+										<tr><font color="#28F397" size="4">Date of Birth:</font>  <%= users.dateOfBirth %></tr>
+									</div>
+									<div style="height: 8px;">
+										<tr><font color="#28F397" size="4">Telephone Number:</font>  <%= users.telephoneNo %></tr>
+									</div>
+									<div style="height: 8px;">
+										<tr><font color="#28F397" size="4">Address:</font>  <%= users.address %></tr>
+									</div>
+									<div style="height: 8px;">
+										<tr><font color="#28F397" size="4">Email:</font>  <%= users.email %></tr>
+									</div>
+									<div style="height: 8px;">
+										<tr><font color="#28F397" size="4">Facebook ID:</font>  <%= users.fb_Id %></tr>
+									</div>
+									<div style="height: 8px;">
+										<tr><font color="#28F397" size="4">Job Title:</font>  <%= users.jobTitle %></tr>
+									</div>
+<!--  -->
+
+              	</tbody>
+            	</table>
+
+
+
+						</div>
+						<div class="col-md-4">
+							<img src="stylesheets/images/profile3.jpg"/>
+						</div>
+					</div>
+
+					<div>
+						<div class="col-sm-offset-3 col-sm-9">
+							<a href="profile/updateProfile/<%= users.id %>"><button class="btn btn-default">Edit Profile</button></a>
+						</div>
+					</div>
+
+				</div>
+			</div>	 
+  </body>
+</html>

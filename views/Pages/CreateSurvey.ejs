@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html >
+  <head>
+     <% include ../partials/Common/head %>	
+  </head>
+
+  <body ng-app="app">
+    
+  			<% include ../partials/Common/header_SurveyAdmin %>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="#">Create New Survey</a></li>
+						<li><a href="CreateSurvey/viewSurvey">View MCQ Survey</a></li>
+						<li><a href="CreateSurvey/viewESurvey">View Essay Survey</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-md-9" ng-controller="addSurveyCtrl">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242;">
+						<div class="col-md-9">
+							<h1>Create New Survey</h1>
+		  						
+										<div class="col-sm-offset-3 col-sm-9">
+											<% include ../partials/Create/importQuestions %>
+											<% include ../partials/Create/createQuestions %>
+											<% include ../partials/Create/createEssayQuestions %>																	  
+										</div>
+									
+						</div>
+					</div>
+				</div>
+			</div>
+		
+
+		<script>
+		function imported(){
+		      swal({
+				  title: "Questions Imported",
+				  text: "view in survey",
+				  timer: 1500,
+				  showConfirmButton: false
+			});
+		}
+
+		function addquestion(){
+		      swal({
+				  title: "Questions Saved",
+				  text: "view in survey",
+				  timer: 1500,
+				  showConfirmButton: false
+			});
+		}
+
+		function addsurvey(){
+		      swal({
+				  title: "Survey added to database",
+				  text: "view in survey",
+				  timer: 1500,
+				  showConfirmButton: false
+			});
+		}
+
+		function myFunction() {
+		      swal("Oops!", "Something went wrong on the page!", "error");
+
+		}
+
+		$("select").bind("change", function() {
+			    if ($(this).val() == "1") {
+			        $("#choices").show();
+			    }
+			    else if ($(this).val() == "2") {
+			        $("#choices").hide();
+			    }
+			});
+					$("select").bind("change2", function() {
+			    if ($(this).val() == "c1") {
+			        $("#ans1").show();
+			    }
+			    else if ($(this).val() == "c2") {
+			        $("#choices").hide();
+			    }
+			});
+
+		function show()
+			{
+				if (x==designers)
+    			var x = document.getElementById('designers');
+    			if (x.style.display == 'none')
+    			{
+       				 x.style.display = 'block';
+    			} 
+    			else
+    			{
+        			x.style.display = 'none';
+   				}
+			}
+
+			var acc = document.getElementsByClassName("accordion");
+				var i;
+
+				for (i = 0; i < acc.length; i++) {
+				  acc[i].onclick = function() {
+				    this.classList.toggle("active");
+				    var panel = this.nextElementSibling;
+				    if (panel.style.maxHeight){
+				  	  panel.style.maxHeight = null;
+				    } else {
+				  	  panel.style.maxHeight = panel.scrollHeight + 'px';
+				    } 
+				  }
+				}
+		</script>  
+  </body>
+</html>

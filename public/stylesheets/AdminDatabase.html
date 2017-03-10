@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>WebFormsAdmin DB</title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+		<link rel="shortcut icon" href="images/favicon.ico" />
+  </head>
+
+  <body>
+    <div class="section">
+			<nav class="navbar navbar-default navbar-fixed-top role="navigation"/>
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<img src="Images/Logo.png" height="50px" align="left" />
+						<a class="navbar-brand" href="#">WebForms</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-user"></span>My profile</a></li>
+						<li><a href="#">Help</a></li>				
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><b>Logged in as </b></a></li>
+								<li><a href="#"><b>Log out</b></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+    </div></br></br></br>
+  
+		<div class="container-fluid">
+			<div class="section">
+				<ul class="nav nav-tabs">
+						<li class="active"><a href="#"><span class="glyphicon glyphicon-folder-open"></span>   Database</a></li>
+						<li><a href="AdminRequest.html"><span class="glyphicon glyphicon-registration-mark"></span> Requests</a></li>
+						<li><a href="AdminDiscussion.html"><span class="glyphicon glyphicon-comment"></span>  Discussion</a></li>
+				</ul>
+			</div></br></br>
+
+			<div class="section">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+							<li class="active"><a href="#">Register New Employee</a></li>
+							<li><a href="#">Update Employee</a></li>
+							<li><a href="#">Delete Employee</a></li>
+							<li><a href="#">Menu 3</a></li>
+						</ul>
+				</div>
+				<div class="col-md-9">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242;">
+						<h1>Enter Employee Details</h1>
+						 <form class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="name">Employee Name</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="ename" id="ename" placeholder="Employee Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="id">Employee Id</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="eid" id="eid" placeholder="Employee Id">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="email">Date of Birth</label>
+								<div class="col-sm-9">
+									<input type="email" class="form-control" id="email" placeholder="Date of Birth">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="pwd">Telephone No</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control" id="pwd" placeholder="Telephone No">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="email">Address</label>
+								<div class="col-sm-9">
+									<input type="email" class="form-control" id="email" placeholder="Address">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="pwd">Email</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control" id="pwd" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="email">FB_Id</label>
+								<div class="col-sm-9">
+									<input type="email" class="form-control" id="email" placeholder="Facebook Id">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="pwd">Job Title</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control" id="pwd" placeholder="Job Title">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-9">
+									<button type="submit" class="btn btn-default">Register</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/bootstrap.js"></script>
+		<script src="js/jquery-2.0.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

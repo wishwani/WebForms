@@ -1,0 +1,40 @@
+<div class="col-md-9">
+					<div class="container-fluid" id="inside" style="border:1px solid #444242; color: white;">
+						<div style="float: right;">
+							<button class="btn btn-info">Delete</button>
+						</div>
+						<div class="inbox-body">
+							
+							<table class="table table-inbox table-hover">
+                <tbody>
+
+                	<% survey.forEach( function( survey ){ %>
+                  	<tr class="unread">
+	                    <td class="inbox-small-cells" style="width: 5%">
+	                      <input type="checkbox" class="mail-checkbox">
+	                    </td>
+	                  	<td style="width: 30%" name="ss"><a href="SubmitSurvey/<%= survey._id %>"><%= survey._id %></a></td>
+					 						<td style="width: 40%" name="ss"><a><%= survey.surveyname %></a></td>
+	                  	<td class="view-message text-right" style="width: 15%">Time</td>
+                  	</tr>
+                  <% }); %>
+
+                  <% esurvey.forEach( function( esurvey ){ %>
+                  	<tr class="unread">
+	                    <td class="inbox-small-cells" style="width: 5%">
+	                      <input type="checkbox" class="mail-checkbox">
+	                    </td>
+	                  	<td style="width: 30%" name="ss"><a href="SubmitSurvey/ESurvey/<%= esurvey._id %>"><%= esurvey._id %></a></td>
+					 						<td style="width: 40%" name="ss"><a><%= esurvey.surveyname %></a></td>
+	                  	<td class="view-message text-right" style="width: 15%">Time</td>
+                  	</tr>
+                  <% }); %>
+         
+
+                </tbody>
+              </table>
+
+
+						</div>
+					</div>
+				</div>
